@@ -7,4 +7,16 @@ df = pd.read_csv(f'headlines/{file_name}', names=['headline', 'posted_time', 'th
 df = df.convert_dtypes()
 df['posted_time'] = df['posted_time'].apply(pd.Timestamp) 
 
-print(df.dtypes)
+
+# avg headline lenght
+
+# df['headline_length'] = len(df['headline'])
+# print(df[['headline', 'headline_length']])
+
+df['words'] = df['headline'].str.lower().str.split()
+
+for w in df['words']:
+    print(len(w))
+# ar yra kada daugiausiai postina laiko intervalas 
+# kokiose temose daugiausiai 
+# zodziu analyze headline
