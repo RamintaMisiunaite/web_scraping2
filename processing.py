@@ -8,15 +8,20 @@ df = df.convert_dtypes()
 df['posted_time'] = df['posted_time'].apply(pd.Timestamp) 
 
 
-# avg headline lenght
-
-# df['headline_length'] = len(df['headline'])
-# print(df[['headline', 'headline_length']])
-
 df['words'] = df['headline'].str.lower().str.split()
 
-for w in df['words']:
-    print(len(w))
-# ar yra kada daugiausiai postina laiko intervalas 
+
+# avg headline lenght
+df['headline_word_count'] = df['headline'].str.count(' ') + 1
+
+print('Average headline length: ' + str(df.loc[:, 'headline_word_count'].mean()))
+
+
 # kokiose temose daugiausiai 
+print(df['theme'].value_counts())
+
+# ar yra kada daugiausiai postina laiko intervalas 
+
 # zodziu analyze headline
+    
+
